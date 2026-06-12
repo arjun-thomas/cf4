@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#050505">
+    <link rel="icon" type="image/png" href="brand_assets/favicon.png" sizes="32x32">
+    <title>Client Questionnaire | CARFECTIVE</title>
+
+    <!-- SEO: exclude this form page from search results -->
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://carfective.com/questionnaire.html">
+
+    <!-- Open Graph (for direct link shares) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://carfective.com/questionnaire.html">
+    <meta property="og:title" content="Client Questionnaire | CARFECTIVE">
+    <meta property="og:description" content="Tell us about your ideal vehicle and we'll handle the rest — sourcing, negotiating, and delivering your next car.">
+    <meta property="og:image" content="https://carfective.com/brand_assets/og-image.png">
+    <meta property="og:site_name" content="Carfective">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap"
+        rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/questionnaire.css">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+
+<body>
+
+    <nav>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="brand_assets/logo.png" alt="CARFECTIVE" style="height: 68px; width: auto;">
+            </a>
+            <div class="nav-links">
+                <a href="index.html#services">Services</a>
+                <a href="index.html#pricing">Pricing</a>
+                <a href="index.html#about">About Us</a>
+                <a href="index.html#faq">FAQ</a>
+                <a href="index.html" class="btn btn-gold nav-btn">Back to Home</a>
+            </div>
+
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <main class="questionnaire-page">
+        <div class="container">
+            <header class="q-header">
+                <h1>Client Vehicle Questionnaire</h1>
+                <p>To better understand your needs, identify the right vehicle, and get the process started, please
+                    complete the sections below.</p>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+            </header>
+
+            <form id="carfectiveForm" class="glass-form" novalidate>
+
+                <!-- Submitting Overlay -->
+                <div id="submittingOverlay" style="display:none;">
+                    <div class="submit-spinner"></div>
+                    <p class="submit-label">Uploading your information</p>
+                    <p id="submitStatusText" class="submit-sub">This may take a moment&hellip;</p>
+                </div>
+
+                <!-- Section 1: Vehicle Preferences -->
+                <section class="form-step active" id="step1">
+                    <h2 class="section-title">1. Vehicle Preferences & Specifications</h2>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="make">Make</label>
+                            <input type="text" id="make" name="make" placeholder="e.g. Porsche" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="model">Model</label>
+                            <input type="text" id="model" name="model" placeholder="e.g. 911" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="trim">Trim</label>
+                        <input type="text" id="trim" name="trim" placeholder="e.g. Carrera S" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="build_sheet_pdf">Vehicle build sheet</label>
+                        <div class="file-upload-wrapper">
+                            <input type="file" id="build_sheet_pdf" name="build_sheet_pdf" accept="application/pdf,.png,.jpg,.jpeg">
+                            <div class="file-dummy">
+                                <i class="fas fa-file-pdf"></i>
+                                <span class="file-label">Click to upload or drag file here</span>
+                                <span class="file-hint">PDF, PNG, JPG, JPEG — Max 10MB</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Drivetrain preference</label>
+                        <div class="radio-chip-group">
+                            <label class="radio-chip"><input type="checkbox" name="drivetrain" value="AWD">
+                                <span>AWD</span></label>
+                            <label class="radio-chip"><input type="checkbox" name="drivetrain" value="FWD">
+                                <span>FWD</span></label>
+                            <label class="radio-chip"><input type="checkbox" name="drivetrain" value="RWD">
+                                <span>RWD</span></label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Engine Type</label>
+                        <div class="radio-chip-group">
+                            <label class="radio-chip"><input type="checkbox" name="engine_type" value="Gas">
+                                <span>Gas</span></label>
+                            <label class="radio-chip"><input type="checkbox" name="engine_type" value="Hybrid">
+                                <span>Hybrid</span></label>
+                            <label class="radio-chip"><input type="checkbox" name="engine_type" value="Electric (EV)">
+                                <span>Electric (EV)</span></label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="ext_color">Exterior Color (Acceptable / Not Acceptable)</label>
+                            <textarea id="ext_color" name="ext_color"
+                                placeholder="e.g. Acceptable: Chalk. Not Acceptable: Red." rows="2"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="int_color">Interior Color (Acceptable / Not Acceptable)</label>
+                            <textarea id="int_color" name="int_color"
+                                placeholder="e.g. Acceptable: Slate Grey. Not Acceptable: Beige." rows="2"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-nav">
+                        <button type="button" class="btn btn-gold next-btn">Next Section</button>
+                    </div>
+                </section>
+
+                <!-- Section 2: Availability & Flexibility -->
+                <section class="form-step" id="step2">
+                    <h2 class="section-title">2. Availability & Flexibility</h2>
+
+                    <div class="form-group">
+                        <label>Open to vehicles greater than 1 hour away?</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="out_of_state" value="Yes" required> Yes</label>
+                            <label><input type="radio" name="out_of_state" value="No"> No</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group conditional" data-show-if="out_of_state" data-value="Yes">
+                        <label>Select preferred distance:</label>
+                        <div class="radio-group" style="flex-direction: column; align-items: flex-start; gap: 0.5rem;">
+                            <label><input type="radio" name="max_distance" value="Any state up to 4 hours drive"
+                                    required> Any state up to 4 hours drive</label>
+                            <label><input type="radio" name="max_distance"
+                                    value="Any state no limit (may require shipping)"> Any state no limit (may require
+                                shipping)</label>
+                        </div>
+                    </div>
+
+                    <div class="form-nav">
+                        <button type="button" class="btn btn-outline prev-btn">Previous</button>
+                        <button type="button" class="btn btn-gold next-btn">Next Section</button>
+                    </div>
+                </section>
+
+                <!-- Section 3: Pricing & Market Activity -->
+                <section class="form-step" id="step3">
+                    <h2 class="section-title">3. Pricing & Market Activity</h2>
+
+                    <div class="form-group">
+                        <label>Have you received any quotes?</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="quotes_received" value="Yes" required> Yes</label>
+                            <label><input type="radio" name="quotes_received" value="No"> No</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group conditional" data-show-if="quotes_received" data-value="Yes">
+                        <label for="quote_details">If yes, please share details (down payment, due at signing, months,
+                            payment, mileage)</label>
+                        <textarea id="quote_details" name="quote_details"
+                            placeholder="Briefly describe the quotes..."></textarea>
+
+                        <label for="quote_file" style="margin-top: 1rem; display: block;">Upload a copy of your vehicle quote (Optional)</label>
+                        <div class="file-upload-wrapper" style="margin-top: 0.5rem;">
+                            <input type="file" id="quote_file" name="quote_file" accept=".pdf,.png,.jpg,.jpeg">
+                            <div class="file-dummy">
+                                <i class="fas fa-file-upload"></i>
+                                <span class="file-label">Click to upload quote</span>
+                                <span class="file-hint">PDF, PNG, JPG, JPEG — Max 10MB</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Has a deposit been placed with a dealer?</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="deposit_placed" value="Yes" required> Yes</label>
+                            <label><input type="radio" name="deposit_placed" value="No"> No</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group conditional" data-show-if="deposit_placed" data-value="Yes">
+                        <label for="deposit_dealer_name">Dealership Name</label>
+                        <input type="text" id="deposit_dealer_name" name="deposit_dealer_name"
+                            placeholder="Enter dealership name">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Have you test-driven the vehicle?</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="test_driven" value="Yes" required> Yes</label>
+                            <label><input type="radio" name="test_driven" value="No"> No</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group conditional" data-show-if="test_driven" data-value="Yes">
+                        <label for="test_driven_dealer_name">Dealership Name(s)</label>
+                        <input type="text" id="test_driven_dealer_name" name="test_driven_dealer_name"
+                            placeholder="Enter dealership name(s)">
+                    </div>
+
+                    <div class="form-nav">
+                        <button type="button" class="btn btn-outline prev-btn">Previous</button>
+                        <button type="button" class="btn btn-gold next-btn">Next Section</button>
+                    </div>
+                </section>
+
+                <!-- Section 4: Purchase Timeline & Priorities -->
+                <section class="form-step" id="step4">
+                    <h2 class="section-title">4. Purchase Timeline & Priorities</h2>
+
+                    <div class="form-group">
+                        <label for="purchase_timeline">What is your purchase timeline?</label>
+                        <div class="custom-select-wrapper">
+                            <select id="purchase_timeline" name="purchase_timeline" required>
+                                <option value="" disabled selected>Select timeline...</option>
+                                <option value="1-7 Days">1-7 Days</option>
+                                <option value="8 days to 2 weeks">8 days to 2 weeks</option>
+                                <option value="1 Month">Within 1 month</option>
+                                <option value="3 Months">Within 3 months</option>
+                                <option value="Researching">Just Researching</option>
+                            </select>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Please rank following in order of importance (Drag to reorder):</label>
+                        <ul class="sortable-list" id="priorityList">
+                            <li class="sort-item" data-id="timeline">
+                                <i class="fas fa-grip-vertical"></i>
+                                <span>Vehicle timeline</span>
+                                <input type="hidden" name="rank_timeline" class="rank-input">
+                            </li>
+                            <li class="sort-item" data-id="build">
+                                <i class="fas fa-grip-vertical"></i>
+                                <span>Exact build</span>
+                                <input type="hidden" name="rank_build" class="rank-input">
+                            </li>
+                            <li class="sort-item" data-id="price">
+                                <i class="fas fa-grip-vertical"></i>
+                                <span>Price</span>
+                                <input type="hidden" name="rank_price" class="rank-input">
+                            </li>
+                            <li class="sort-item" data-id="other">
+                                <i class="fas fa-grip-vertical"></i>
+                                <div class="other-rank-wrap">
+                                    <input type="text" name="rank_other_text" placeholder="Other (Specify)..."
+                                        class="other-input">
+                                </div>
+                                <input type="hidden" name="rank_other" class="rank-input">
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="form-nav">
+                        <button type="button" class="btn btn-outline prev-btn">Previous</button>
+                        <button type="button" class="btn btn-gold next-btn">Next Section</button>
+                    </div>
+                </section>
+
+                <!-- Section 5: Purchase or Lease Details -->
+                <section class="form-step" id="step5">
+                    <h2 class="section-title">5. Leasing or Purchasing?</h2>
+
+                    <div class="form-group">
+                        <label>Which are you considering?</label>
+                        <div class="radio-chip-group" id="financeToggle">
+                            <label class="radio-chip"><input type="radio" name="finance_type" value="Purchasing"
+                                    required> <span>Purchasing</span></label>
+                            <label class="radio-chip"><input type="radio" name="finance_type" value="Leasing">
+                                <span>Leasing</span></label>
+                            <label class="radio-chip"><input type="radio" name="finance_type"
+                                    value="Unsure / Help me Decide">
+                                <span>Unsure / Help me Decide</span></label>
+                        </div>
+                    </div>
+
+                    <!-- B. If Purchasing -->
+                    <div class="form-subset conditional-finance" id="purchasingFields" style="display: none;">
+                        <h3>If Purchasing</h3>
+                        <div class="form-group">
+                            <label for="purchase_target_price">What price are you ready to purchase the vehicle before
+                                taxes, title, and fees?</label>
+                            <input type="text" id="purchase_target_price" name="purchase_target_price"
+                                placeholder="e.g. $85,000">
+                        </div>
+                        <div class="form-group">
+                            <label for="down_payment">How much down payment will you be placing?</label>
+                            <input type="text" id="down_payment" name="down_payment" placeholder="e.g. $20,000">
+                        </div>
+                        <div class="form-group">
+                            <label>Financing through:</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="financing_source" value="Manufacturer">
+                                    Manufacturer</label>
+                                <label><input type="radio" name="financing_source" value="Outside Lender"> Outside
+                                    lender</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Do you require buy down to 0% interest?</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="zero_interest" value="Yes"> Yes</label>
+                                <label><input type="radio" name="zero_interest" value="No"> No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- C. If Leasing -->
+                    <div class="form-subset conditional-finance" id="leasingFields" style="display: none;">
+                        <h3>If Leasing</h3>
+                        <div class="form-group">
+                            <label for="target_monthly">Maximum monthly payment</label>
+                            <input type="text" id="target_monthly" name="target_monthly" placeholder="e.g. $1,500">
+                        </div>
+                        <div class="form-group">
+                            <label>Miles per year:</label>
+                            <div class="radio-chip-group">
+                                <label class="radio-chip"><input type="radio" name="miles_per_year" value="7500">
+                                    <span>7,500</span></label>
+                                <label class="radio-chip"><input type="radio" name="miles_per_year" value="10000">
+                                    <span>10,000</span></label>
+                                <label class="radio-chip"><input type="radio" name="miles_per_year" value="12000">
+                                    <span>12,000</span></label>
+                                <label class="radio-chip"><input type="radio" name="miles_per_year" value="15000">
+                                    <span>15,000</span></label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Lease term length (months):</label>
+                            <div class="radio-chip-group">
+                                <label class="radio-chip"><input type="radio" name="lease_term" value="24">
+                                    <span>24</span></label>
+                                <label class="radio-chip"><input type="radio" name="lease_term" value="36">
+                                    <span>36</span></label>
+                                <label class="radio-chip"><input type="radio" name="lease_term" value="39">
+                                    <span>39</span></label>
+                                <label class="radio-chip"><input type="radio" name="lease_term" value="48">
+                                    <span>48</span></label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Open to using Multiple Security Deposits (MSDs)?</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="open_to_msd" value="Yes"> Yes</label>
+                                <label><input type="radio" name="open_to_msd" value="No"> No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-nav">
+                        <button type="button" class="btn btn-outline prev-btn">Previous</button>
+                        <button type="button" class="btn btn-gold next-btn">Next Section</button>
+                    </div>
+                </section>
+
+                <!-- Section 6: Financial Information -->
+                <section class="form-step" id="step6">
+                    <h2 class="section-title">6. Financial Information</h2>
+
+                    <div class="form-group">
+                        <label for="credit_score">Estimated Credit score:</label>
+                        <input type="text" id="credit_score" name="credit_score" placeholder="e.g. 750" required>
+                    </div>
+
+                    <div class="form-nav">
+                        <button type="button" class="btn btn-outline prev-btn">Previous</button>
+                        <button type="button" class="btn btn-gold next-btn">Next Section</button>
+                    </div>
+                </section>
+
+                <!-- Section 7: Trade-In Information -->
+                <section class="form-step" id="step7">
+                    <h2 class="section-title">7. Trade-In Information</h2>
+
+                    <div class="form-group">
+                        <label>Any trade-ins?</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="trade_in" value="Yes" required> Yes</label>
+                            <label><input type="radio" name="trade_in" value="No"> No</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group conditional" data-show-if="trade_in" data-value="Yes">
+                        <label for="trade_details">Please share details (Make, Model, Year, Miles, Condition)</label>
+                        <textarea id="trade_details" name="trade_details"
+                            placeholder="e.g. 2021 BMW M4, 15k miles..."></textarea>
+
+                        <label for="trade_upload" style="margin-top: 1rem; display: block;">Upload trade-in quotes (Carvana, other dealerships, etc.) (Optional)</label>
+                        <div class="file-upload-wrapper" style="margin-top: 0.5rem;">
+                            <input type="file" id="trade_upload" name="trade_upload" accept=".pdf,.png,.jpg,.jpeg"
+                                multiple>
+                            <div class="file-dummy">
+                                <i class="fas fa-file-upload"></i>
+                                <span class="file-label">Click to upload quotes</span>
+                                <span class="file-hint">PDF, PNG, JPG, JPEG — Max 10MB</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-nav">
+                        <button type="button" class="btn btn-outline prev-btn">Previous</button>
+                        <button type="button" class="btn btn-gold next-btn">Next Section</button>
+                    </div>
+                </section>
+
+                <!-- Section 8: Household & Registration Information -->
+                <section class="form-step" id="step8">
+                    <h2 class="section-title">8. Household & Registration Information</h2>
+
+                    <div class="form-group">
+                        <label>Will the purchase be under:</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="purchase_entity" value="Personal" required>
+                                Personal</label>
+                            <label><input type="radio" name="purchase_entity" value="Business"> Business</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Will there be a cosigner?</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="has_cosigner" value="Yes" required> Yes</label>
+                            <label><input type="radio" name="has_cosigner" value="No"> No</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registration_address">Registration address and county</label>
+                        <textarea id="registration_address" name="registration_address"
+                            placeholder="Full address and county" rows="2" required></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contact_name">Primary Name / Business Name</label>
+                            <input type="text" id="contact_name" name="contact_name"
+                                placeholder="John Doe or Acme Corp." required>
+                        </div>
+                        <div class="form-group conditional" data-show-if="has_cosigner" data-value="Yes">
+                            <label for="cosigner_name">Cosigner / Guarantor Name</label>
+                            <input type="text" id="cosigner_name" name="cosigner_name" placeholder="Jane Doe">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact_phone">Phone Number</label>
+                        <input type="tel" id="contact_phone" name="contact_phone" placeholder="+1 (555) 000-0000"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact_email">Email Address</label>
+                        <input type="email" id="contact_email" name="contact_email" placeholder="email@example.com"
+                            required>
+                    </div>
+
+
+
+                    <div class="form-nav">
+                        <button type="button" class="btn btn-outline prev-btn">Previous</button>
+                        <button type="button" class="btn btn-gold next-btn">Next Section</button>
+                    </div>
+                </section>
+
+                <!-- Section 9: Packages & Services Selection -->
+                <section class="form-step" id="step9">
+                    <h2 class="section-title">9. Package & Services Selection</h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;">Please select the package that best fits your needs. Hover over each option to view details.</p>
+
+                    <div class="form-group">
+                        <div class="package-selection">
+                            <label class="package-card" title="• Vehicle MSRP below $60K&#10;• 2 vehicle quotes&#10;• Source, negotiate your selected car&#10;• Designated consultant&#10;• Coordinate vehicle pickup at dealership&#10;• Vehicle search based on your preferences">
+                                <input type="radio" name="selected_package" value="Silver" required>
+                                <div class="package-content">
+                                    <h3>Silver</h3>
+                                    <div class="price">$750</div>
+                                </div>
+                            </label>
+                            
+                            <label class="package-card featured" title="Everything from Silver plus:&#10;• Vehicle MSRP $60K to $120K&#10;• 3 vehicle quotes&#10;• Pick up car at dealership on your own&#10;• Test drives can be arranged">
+                                <input type="radio" name="selected_package" value="Gold">
+                                <div class="package-content">
+                                    <h3>Gold</h3>
+                                    <div class="price">$1,250</div>
+                                </div>
+                            </label>
+                            
+                            <label class="package-card" title="Everything from Gold plus:&#10;• Any vehicle MSRP & vehicles above $120k&#10;• White glove concierge service&#10;• 4 vehicle quotes&#10;• Complete end-to-end support with stress-free and hands-off experience&#10;• Source, negotiate, and deliver your car&#10;• Coordination of test drives&#10;• Guidance on selecting a make/model/trim&#10;• Trade-in evaluation and support&#10;• Lease return assistance&#10;• Consultant meets you at car signing">
+                                <input type="radio" name="selected_package" value="Platinum">
+                                <div class="package-content">
+                                    <h3>Platinum</h3>
+                                    <div class="price">$2,500</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Select Additional Services (+$400 each)</label>
+                        <div class="radio-chip-group" style="flex-wrap: wrap;">
+                            <label class="radio-chip"><input type="checkbox" name="additional_services"
+                                    value="Expedited & Urgent Requests"> <span>Expedited & Urgent
+                                    Requests </span></label>
+                            <label class="radio-chip"><input type="checkbox" name="additional_services"
+                                    value="Financing/Refinancing"> <span>Financing, Refinancing, or Rate
+                                    Buy-Down </span></label>
+                            <label class="radio-chip"><input type="checkbox" name="additional_services"
+                                    value="Vehicle Transport"> <span>Vehicle Transport Coordination </span></label>
+                            <label class="radio-chip"><input type="checkbox" name="additional_services"
+                                    value="Unicorn Deals"> <span>Unicorn Deals </span></label>
+                            <label class="radio-chip"><input type="checkbox" name="additional_services"
+                                    value="Vehicle Sale/Trade In"> <span>Vehicle Sale / Trade In </span></label>
+                            <label class="radio-chip"><input type="checkbox" name="additional_services"
+                                    value="On-Site Presence"> <span>On-Site Dealership Presence </span></label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Other Services (Individual Selection)</label>
+                        <div class="radio-group" style="flex-direction: column; align-items: flex-start; gap: 1rem;">
+                            <label><input type="checkbox" name="option_consultation" value="1 Hour Consultation"> 1 hour
+                                consultation (+$300)</label>
+
+                            <div style="width: 100%;">
+                                <label><input type="checkbox" name="option_pricing" value="Yes"
+                                        class="pricing-checkbox"> Pricing / Quotes (+$100)</label>
+                                <div class="conditional" data-show-if="option_pricing" data-value="Yes"
+                                    style="margin-top: 0.5rem; padding-left: 2rem;">
+                                    <textarea name="pricing_details"
+                                        placeholder="Share details of what you are seeking for pricing or quotes..."
+                                        rows="2"
+                                        style="width: 100%; border: 1px solid var(--border-light); background: rgba(0,0,0,0.5); padding: 0.8rem; color: #fff;"></textarea>
+                                </div>
+                            </div>
+
+                            <div style="width: 100%;">
+                                <label><input type="checkbox" name="option_history" value="Yes"> Vehicle History
+                                    report (+$10)</label>
+                                <div class="conditional" data-show-if="option_history" data-value="Yes"
+                                    style="margin-top: 0.5rem; padding-left: 2rem;">
+                                    <input type="text" name="history_vin_details"
+                                        placeholder="Enter VIN, Make, Model, Year..."
+                                        style="width: 100%; border: 1px solid var(--border-light); background: rgba(0,0,0,0.5); padding: 0.8rem; color: #fff;">
+                                </div>
+                            </div>
+
+                            <div style="width: 100%;">
+                                <label><input type="checkbox" name="option_whatsapp" value="Yes"> Join WhatsApp Deal Group (+$100/yr)</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- How did you hear about us -->
+                    <div class="form-group">
+                        <label>How did you hear about us?</label>
+                        <div class="radio-group" style="flex-direction: column; align-items: flex-start; gap: 0.75rem;">
+                            <label><input type="radio" name="referral_source" value="Internet Search"> Internet Search</label>
+                            <label><input type="radio" name="referral_source" value="Social Media"> Social Media</label>
+                            <label><input type="radio" name="referral_source" value="Word of Mouth"> Word of Mouth</label>
+                        </div>
+                        <div class="conditional" data-show-if="referral_source" data-value="Word of Mouth" style="margin-top: 0.75rem;">
+                            <label for="referral_name">Suggested By</label>
+                            <input type="text" id="referral_name" name="referral_name" placeholder="Enter name...">
+                        </div>
+                    </div>
+
+                    <!-- reCAPTCHA Widget -->
+                    <div class="form-group" style="margin: 2rem 0;">
+                        <div class="g-recaptcha" data-sitekey="6LdWNY4sAAAAAN4tVQxve91BHcPN1YZtV93A7kdg"
+                            data-theme="dark"></div>
+                    </div>
+
+                    <div class="form-nav">
+                        <button type="button" class="btn btn-outline prev-btn">Previous</button>
+                        <button type="submit" class="btn btn-gold" id="submitBtn">Submit Questionnaire</button>
+                    </div>
+                </section>
+
+                <!-- Success/Error States -->
+                <div id="successMessage" class="success-message" style="display: none;">
+                    <i class="fas fa-check-circle"></i>
+                    <h2>Thank You!</h2>
+                    <p>Your questionnaire has been submitted successfully. Please check your email for next steps.</p>
+
+                    <a href="index.html" class="btn btn-gold">Return to Home</a>
+                </div>
+
+                <div id="errorMessage" class="error-message" style="display: none;">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h2>Submission Failed</h2>
+                    <p>There was an error. Please try again.</p>
+                    <button type="button" class="btn btn-outline" onclick="location.reload()">Try Again</button>
+                </div>
+
+            </form>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/questionnaire.js"></script>
+</body>
+
+</html>

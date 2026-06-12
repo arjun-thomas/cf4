@@ -1,0 +1,463 @@
+/* Questionnaire Page — matches Editorial Minimal theme */
+
+.questionnaire-page {
+    padding-top: 110px;
+    padding-bottom: 6rem;
+    min-height: 100vh;
+}
+
+nav {
+    background: rgba(12, 11, 9, 0.97) !important;
+    border-bottom: 1px solid var(--line) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/* ── Header ───────────────────────────────────────────── */
+.q-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+}
+
+.q-header h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 6vw, 3rem);
+    font-weight: 300;
+    margin-bottom: 1rem;
+    letter-spacing: 0.04em;
+    color: var(--text-primary);
+}
+
+.q-header p {
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto;
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+}
+
+/* ── Progress ─────────────────────────────────────────── */
+.progress-container {
+    width: 100%;
+    max-width: 800px;
+    height: 2px;
+    background: var(--line);
+    margin: 2rem auto 0;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 11.1%;
+    background: var(--text-accent);
+    transition: width 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: none;
+}
+
+/* ── Form Card ────────────────────────────────────────── */
+.glass-form {
+    max-width: 850px;
+    margin: 0 auto;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 0;
+    padding: 3rem;
+    position: relative;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+/* ── Section title inside form ────────────────────────── */
+.glass-form .section-title {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: clamp(0.75rem, 3vw, 0.9rem);
+    color: var(--text-accent);
+    margin-bottom: 2.5rem;
+    padding-left: 0;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+/* ── Form Steps ───────────────────────────────────────── */
+.form-step {
+    display: none;
+    animation: slideIn 0.4s ease forwards;
+}
+
+.form-step.active { display: block; }
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(12px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+.form-group { margin-bottom: 2rem; }
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+label {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.67rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+}
+
+/* ── Inputs ───────────────────────────────────────────── */
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="number"],
+input[type="tel"],
+textarea {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    background: rgba(232, 226, 212, 0.03);
+    border: 1px solid var(--line);
+    border-radius: 0;
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    transition: border-color 0.25s ease, background 0.25s ease;
+    -webkit-appearance: none;
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--text-accent);
+    background: rgba(196, 152, 60, 0.04);
+    outline: none;
+    box-shadow: none;
+}
+
+input.error,
+textarea.error { border-color: #c05555; }
+
+/* ── Custom Select ────────────────────────────────────── */
+.custom-select-wrapper { position: relative; }
+
+.custom-select-wrapper select {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    padding: 0.9rem 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 0;
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: border-color 0.25s ease;
+}
+
+.custom-select-wrapper select:focus {
+    border-color: var(--text-accent);
+    outline: none;
+}
+
+.custom-select-wrapper select option { background: #1a1916; color: var(--text-primary); }
+.custom-select-wrapper i { position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); pointer-events: none; color: var(--text-accent); font-size: 0.75rem; }
+
+/* ── File Upload ──────────────────────────────────────── */
+.file-upload-wrapper { position: relative; cursor: pointer; }
+.file-upload-wrapper input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; z-index: 2; }
+
+.file-dummy {
+    padding: 2rem;
+    border: 1px dashed rgba(232, 226, 212, 0.15);
+    border-radius: 0;
+    text-align: center;
+    transition: border-color 0.25s ease, background 0.25s ease;
+    background: rgba(232, 226, 212, 0.02);
+}
+
+.file-upload-wrapper:hover .file-dummy {
+    border-color: var(--text-accent);
+    background: rgba(196, 152, 60, 0.03);
+}
+
+.file-dummy i { font-size: 1.5rem; color: var(--text-accent); margin-bottom: 0.75rem; display: block; }
+.file-label { font-size: 0.84rem; color: var(--text-secondary); }
+.file-hint { font-size: 0.7rem; color: var(--text-secondary); opacity: 0.6; margin-top: 0.35rem; display: block; }
+
+/* ── Sortable List ────────────────────────────────────── */
+.sortable-list { list-style: none; margin-top: 1.5rem; }
+
+.sort-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(232, 226, 212, 0.03);
+    border: 1px solid var(--line);
+    border-radius: 0;
+    margin-bottom: 0.6rem;
+    cursor: grab;
+    transition: background 0.2s ease, border-color 0.2s ease;
+    touch-action: none;
+}
+
+.sort-item:hover { background: rgba(196, 152, 60, 0.04); border-color: var(--line-accent); transform: none; }
+.sort-item.dragging { opacity: 0.2; background: var(--text-accent); transform: scale(0.98); border: 1px dashed var(--text-accent); }
+.sort-item:active { cursor: grabbing; background: rgba(196, 152, 60, 0.06); border-color: var(--text-accent); }
+.sort-item i { color: var(--text-accent); opacity: 0.5; font-size: 0.85rem; }
+.sort-item span { font-weight: 500; font-size: 0.9rem; }
+
+.other-rank-wrap { flex-grow: 1; }
+.other-input { padding: 0.5rem 0.75rem !important; font-size: 0.88rem !important; border-radius: 0 !important; }
+
+/* ── Radio / Checkbox Chips ───────────────────────────── */
+.radio-chip-group { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+
+.radio-chip input, .checkbox-chip input { display: none; }
+
+.radio-chip span, .checkbox-chip span {
+    padding: 0.65rem 1.2rem;
+    background: rgba(232, 226, 212, 0.03);
+    border: 1px solid var(--line);
+    border-radius: 0;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 500;
+    display: inline-block;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    letter-spacing: 0.02em;
+}
+
+.radio-chip span:hover, .checkbox-chip span:hover {
+    border-color: var(--line-2);
+    background: rgba(232, 226, 212, 0.05);
+}
+
+.radio-chip input:checked + span,
+.checkbox-chip input:checked + span {
+    background: var(--text-accent);
+    color: #090805;
+    border-color: var(--text-accent);
+    box-shadow: none;
+}
+
+/* ── Form Subset ──────────────────────────────────────── */
+.form-subset {
+    margin-top: 2.5rem;
+    animation: slideDown 0.35s ease forwards;
+}
+
+.form-subset h3 {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 0.75rem;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Nav Buttons ──────────────────────────────────────── */
+.form-nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+    flex-wrap: wrap;
+}
+
+.btn-gold {
+    background: var(--text-accent);
+    color: #090805;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    padding: 0.9rem 2.2rem;
+    border-radius: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    box-shadow: none;
+    border: 1px solid var(--text-accent);
+    cursor: pointer;
+    transition: background 0.25s ease, border-color 0.25s ease;
+    font-size: 0.72rem;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.btn-gold:hover {
+    background: var(--text-primary);
+    border-color: var(--text-primary);
+    transform: none;
+    box-shadow: none;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--line);
+    padding: 0.9rem 2rem;
+    border-radius: 0;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    transition: border-color 0.25s ease, color 0.25s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.btn-outline:hover { border-color: var(--line-2); color: var(--text-primary); }
+
+/* ── Package Selection ────────────────────────────────── */
+.package-selection {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+.package-card { display: block; cursor: pointer; position: relative; height: 100%; }
+.package-card input { display: none; }
+
+.package-content {
+    background: rgba(232, 226, 212, 0.03);
+    border: 1px solid var(--line);
+    border-radius: 0;
+    padding: 2rem 1.25rem;
+    text-align: center;
+    transition: border-color 0.25s ease, background 0.25s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.package-card.featured .package-content {
+    background: rgba(196, 152, 60, 0.04);
+    border-color: var(--line-accent);
+}
+
+.package-content h3 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-family: var(--font-serif);
+    font-weight: 300;
+}
+
+.package-content .price {
+    font-family: var(--font-serif);
+    font-size: 1.7rem;
+    font-weight: 300;
+    color: var(--text-accent);
+}
+
+.package-card input:checked + .package-content {
+    background: rgba(196, 152, 60, 0.08);
+    border-color: var(--text-accent);
+    box-shadow: none;
+    transform: none;
+}
+
+/* ── Submitting Overlay ───────────────────────────────── */
+#submittingOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(12, 11, 9, 0.94);
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    padding: 3rem;
+    backdrop-filter: none;
+}
+
+.submit-spinner {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(196, 152, 60, 0.2);
+    border-top-color: var(--text-accent);
+    border-radius: 50%;
+    animation: submitSpin 0.75s linear infinite;
+    flex-shrink: 0;
+}
+
+@keyframes submitSpin {
+    to { transform: rotate(360deg); }
+}
+
+.submit-label {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--text-accent);
+    margin: 0;
+}
+
+.submit-sub {
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* ── Success / Error ──────────────────────────────────── */
+.success-message, .error-message {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: var(--bg-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.success-message i { font-size: 2.5rem; color: var(--text-accent); margin-bottom: 1.5rem; display: block; }
+.error-message i   { font-size: 2.5rem; color: #c05555; margin-bottom: 1.5rem; display: block; }
+.success-message h2, .error-message h2 { margin-bottom: 1rem; }
+.success-message p, .error-message p { color: var(--text-secondary); margin-bottom: 2rem; font-size: 0.9rem; }
+
+/* ── Responsive ───────────────────────────────────────── */
+@media (max-width: 768px) {
+    .questionnaire-page { padding-top: 90px; }
+    .glass-form { padding: 2rem 1.5rem; border-radius: 0; }
+    .form-row { grid-template-columns: 1fr; gap: 0; }
+    .q-header h1 { font-size: 1.8rem; }
+    .glass-form .section-title { font-size: 0.72rem; margin-bottom: 2rem; }
+    .form-nav { justify-content: stretch; }
+    .form-nav button { flex: 1; text-align: center; }
+    .package-selection { grid-template-columns: 1fr; }
+    .radio-chip-group { gap: 0.4rem; }
+    .radio-chip span, .checkbox-chip span { padding: 0.55rem 0.9rem; font-size: 0.78rem; }
+    .sort-item { padding: 0.9rem; gap: 0.75rem; }
+}
+
+@media (max-width: 480px) {
+    .glass-form { padding: 1.5rem 1rem; }
+    .btn-gold, .btn-outline { padding: 0.85rem 1.2rem; font-size: 0.68rem; }
+}

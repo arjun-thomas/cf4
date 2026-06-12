@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /questionnaire.html
+
+Sitemap: https://carfective.com/sitemap.xml
