@@ -331,18 +331,19 @@ nav.scrolled {
 /* Philosophy content moved inside hero — must beat .hero p specificity */
 .hero p.hero-philosophy-lead {
     margin-top: 4rem !important;
+    margin-bottom: 2rem !important;
     margin-left: auto !important;
     margin-right: auto !important;
     padding-top: 3rem !important;
     border-top: 1px solid var(--line) !important;
     max-width: 860px !important;
-    font-size: clamp(1.2rem, 2vw, 1.6rem) !important;
+    font-size: clamp(1.5rem, 2.8vw, 2.2rem) !important;
     font-weight: 400 !important;
     font-style: normal !important;
-    line-height: 1.2 !important;
+    line-height: 1.25 !important;
     letter-spacing: 0.01em !important;
-    white-space: nowrap !important;
     text-align: center !important;
+    color: var(--text-accent) !important;
 }
 
 .hero p.hero-philosophy-body {
