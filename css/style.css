@@ -1092,6 +1092,9 @@ footer > .container > p {
 @media (max-width: 768px) {
     html { font-size: 15px; }
 
+    /* Keep hero content clear of the fixed nav logo on short mobile screens */
+    .hero { padding-top: 110px; }
+
     .services-grid { grid-template-columns: 1fr 1fr; }
 
     .benefits-grid {

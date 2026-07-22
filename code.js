@@ -370,6 +370,7 @@ function sendClientEmail(data) {
   `;
   MailApp.sendEmail({
     to: data.contact_email,
+    cc: Session.getEffectiveUser().getEmail(),
     subject: `${clientFirstName} - ${EMAIL_SUBJECT}`,
     htmlBody: htmlBody,
     name: EMAIL_SENDER_NAME
