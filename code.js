@@ -13,6 +13,7 @@ const TELEGRAM_CHAT_ID = "-1003996812032";
 // --- EMAIL SETTINGS ---
 const EMAIL_SUBJECT = "Next Steps with Carfective";
 const EMAIL_SENDER_NAME = "Carfective Consultant";
+const NOTIFY_CC_EMAIL = "arjunthomas1994@gmail.com";
 
 // --- LOGO SETTINGS ---
 const LOGO_URL = "https://raw.githubusercontent.com/arjun-thomas/cf2/refs/heads/main/brand_assets/black%20(1).png";
@@ -370,7 +371,7 @@ function sendClientEmail(data) {
   `;
   MailApp.sendEmail({
     to: data.contact_email,
-    cc: Session.getEffectiveUser().getEmail(),
+    cc: NOTIFY_CC_EMAIL,
     subject: `${clientFirstName} - ${EMAIL_SUBJECT}`,
     htmlBody: htmlBody,
     name: EMAIL_SENDER_NAME
